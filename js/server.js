@@ -8,7 +8,7 @@ app.use(express.json());
 let tasks = [
     {
         id: 1,
-        title: "Estudiar Web APIs",
+        title: "Review Docker Compose Documentation",
         completed: false
     }
 ];
@@ -39,9 +39,9 @@ app.delete("/tasks/:id", (req, res) => {
     const id = parseInt(req.params.id);
     tasks = tasks.filter(task => task.id !== id);
 
-    res.json({ message: "Tarea eliminada" });
+    res.json({ message: "Task has been deleted." });
 });
 
 app.listen(3000, () => {
-    console.log("Servidor corriendo en http://localhost:3000");
+    console.log("Server running on http://localhost:3000");
 });

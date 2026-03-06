@@ -1,0 +1,139 @@
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+background:#0b0b0f;
+color:#00f7ff;
+font-family:"Share Tech Mono", monospace;
+min-height:100vh;
+}
+
+
+.app-header{
+text-align:center;
+padding:40px 0;
+}
+
+.app-header h1{
+letter-spacing:3px;
+text-shadow:
+0 0 8px #00f7ff,
+0 0 16px #00f7ff;
+}
+
+
+.container{
+display:flex;
+justify-content:center;
+}
+
+
+.task-panel{
+width:420px;
+padding:25px;
+background:#111118;
+border:1px solid #00f7ff55;
+border-radius:10px;
+
+box-shadow:
+0 0 10px #00f7ff33,
+0 0 30px #00f7ff11;
+}
+
+
+.task-input{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.task-input input{
+flex:1;
+padding:10px;
+background:#0b0b0f;
+border:1px solid #00f7ff55;
+color:#00f7ff;
+border-radius:4px;
+}
+
+.task-input input:focus{
+outline:none;
+box-shadow:0 0 6px #00f7ff;
+}
+
+.task-input button{
+padding:10px 16px;
+border:none;
+background:#ff2bd6;
+color:white;
+border-radius:4px;
+cursor:pointer;
+
+box-shadow:
+0 0 6px #ff2bd6,
+0 0 12px #ff2bd6;
+}
+
+.task-input button:hover{
+background:#ff00c8;
+}
+
+.task-list ul{
+list-style:none;
+}
+
+.task-list li{
+padding:10px;
+border-bottom:1px solid #00f7ff33;
+}
+
+#emptyMessage{
+text-align:center;
+color:#00f7ffaa;
+margin-top:10px;
+font-size:14px;
+}
+
+.cat-ai{
+font-size:14px;
+color:#ff2bd6;
+text-shadow:0 0 6px #ff2bd6;
+margin-top:5px;
+}
+
+.completed::after{
+content:" 🐾";
+color:#ff2bd6;
+text-shadow:0 0 6px #ff2bd6;
+}
+
+.task-panel{
+position:relative;
+}
+
+.task-panel::before,
+.task-panel::after{
+content:"";
+position:absolute;
+top:-15px;
+width:20px;
+height:20px;
+background:#111118;
+border:1px solid #00f7ff55;
+transform:rotate(45deg);
+}
+
+.task-panel::before{
+left:40px;
+}
+
+.task-panel::after{
+right:40px;
+}
+
+body{
+cursor:url('../assets/cat-cursor.png'), auto;
+}

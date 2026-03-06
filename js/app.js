@@ -27,7 +27,7 @@ function renderTasks(tasks) {
         li.textContent = task.title;
 
         const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Eliminar";
+        deleteBtn.textContent = "Delete";
         deleteBtn.onclick = () => deleteTask(task.id);
 
         li.appendChild(deleteBtn);
