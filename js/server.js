@@ -8,7 +8,52 @@ app.use(express.json());
 let tasks = [
     {
         id: 1,
+        title: "Patch NeonPaws Security Firewall",
+        completed: false
+    },
+    {
+        id: 2,
         title: "Review Docker Compose Documentation",
+        completed: false
+    },
+    {
+        id: 3,
+        title: "Deploy Node.js API to the Cyber Grid",
+        completed: false
+    },
+    {
+        id: 4,
+        title: "Optimize Task Database Indexes",
+        completed: false
+    },
+    {
+        id: 5,
+        title: "Run System Diagnostics for AI Assistant",
+        completed: false
+    },
+    {
+        id: 6,
+        title: "Calibrate CyberCat Navigation Sensors",
+        completed: false
+    },
+    {
+        id: 7,
+        title: "Scan Network for Rogue Processes",
+        completed: false
+    },
+    {
+        id: 8,
+        title: "Backup Task Logs to Secure Server",
+        completed: false
+    },
+    {
+        id: 9,
+        title: "Upgrade Neon UI Interface Modules",
+        completed: false
+    },
+    {
+        id: 10,
+        title: "Feed the Cyber Cat AI (Critical)",
         completed: false
     }
 ];

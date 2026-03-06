@@ -24,13 +24,18 @@ function renderTasks(tasks) {
 
     tasks.forEach(task => {
         const li = document.createElement("li");
-        li.textContent = task.title;
+
+        const textSpan = document.createElement("span");
+        textSpan.textContent = task.title;
 
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("delete-btn");
         deleteBtn.onclick = () => deleteTask(task.id);
 
+        li.appendChild(textSpan);
         li.appendChild(deleteBtn);
+
         taskList.appendChild(li);
     });
 }
