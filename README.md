@@ -9,6 +9,8 @@ La aplicación permite:
 
 Las tareas se almacenan **temporalmente en memoria**, por lo que se reinician al detener el servidor.
 
+- Página hosteada en GitHub Pages: [PurrShell - Task Manager](https://ingridzmendoza.github.io/Task-Manager-API/)
+
 ---
 
 # Tecnologías
