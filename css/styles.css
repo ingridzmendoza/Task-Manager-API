@@ -1,8 +1,9 @@
-* {
+/* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+    */
 
 body {
     background: #0b0b0f;
@@ -31,16 +32,16 @@ body {
 }
 
 
-.task-panel{
-width:500px;
-padding:25px;
-background:#111118;
-border:1px solid #00f7ff55;
-border-radius:10px;
+.task-panel {
+    width: 500px;
+    padding: 25px;
+    background: #111118;
+    border: 1px solid #00f7ff55;
+    border-radius: 10px;
 
-box-shadow:
-0 0 10px #00f7ff33,
-0 0 30px #00f7ff11;
+    box-shadow:
+        0 0 10px #00f7ff33,
+        0 0 30px #00f7ff11;
 }
 
 
@@ -85,22 +86,22 @@ box-shadow:
     list-style: none;
 }
 
-.task-list li{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-padding:12px 10px;
-border-bottom:1px solid #00f7ff33;
+    padding: 12px 10px;
+    border-bottom: 1px solid #00f7ff33;
 }
 
-.task-list li span{
-flex:1;
+.task-list li span {
+    flex: 1;
 }
 
-.task-list li:hover{
-background:#00f7ff0a;
-box-shadow:0 0 8px #00f7ff22 inset;
+.task-list li:hover {
+    background: #00f7ff0a;
+    box-shadow: 0 0 8px #00f7ff22 inset;
 }
 
 #emptyMessage {
@@ -147,26 +148,26 @@ box-shadow:0 0 8px #00f7ff22 inset;
     right: 40px;
 }
 
-.delete-btn{
-background:transparent;
-border:1px solid #ff2bd6;
-color:#ff2bd6;
-padding:4px 10px;
-margin-left:15px;
-border-radius:4px;
+.delete-btn {
+    background: transparent;
+    border: 1px solid #ff2bd6;
+    color: #ff2bd6;
+    padding: 4px 10px;
+    margin-left: 15px;
+    border-radius: 4px;
 
-cursor:url('../assets/cat-cursor.png') 12 12, auto;
+    cursor: url('../assets/cat_cursor.png') 12 12, auto;
 
-transition:all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
-.delete-btn:hover{
-background:#ff2bd6;
-color:black;
+.delete-btn:hover {
+    background: #ff2bd6;
+    color: black;
 
-box-shadow:
-0 0 6px #ff2bd6,
-0 0 12px #ff2bd6;
+    box-shadow:
+        0 0 6px #ff2bd6,
+        0 0 12px #ff2bd6;
 }
 
 body {
@@ -188,4 +189,176 @@ button:hover {
 input,
 textarea {
     cursor: text;
+}
+
+/* logout */
+
+.logout-btn {
+
+    margin-top: 20px;
+
+    padding: 10px 16px;
+
+    background: transparent;
+
+    border: 1px solid #ff3b3b;
+
+    color: #ff3b3b;
+
+    border-radius: 4px;
+
+    font-family: "Share Tech Mono", monospace;
+
+    box-shadow:
+        0 0 6px #ff3b3b44;
+
+    transition: all 0.2s ease;
+
+}
+
+.logout-btn:hover {
+
+    background: #ff3b3b;
+
+    color: black;
+
+    box-shadow:
+        0 0 8px #ff3b3b,
+        0 0 16px #ff3b3b;
+
+}
+
+#loginPanel {
+
+    width: auto;
+    margin: 80px auto;
+    padding: 35px 25px 25px 25px;
+
+    background: #0e0e14;
+
+    border: 1px solid #00f7ff44;
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 12px #00f7ff22,
+        0 0 40px #00f7ff11;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    position: relative;
+
+}
+
+
+#loginPanel::before {
+
+    content: "ACCESS REQUIRED";
+
+    position: absolute;
+    top: -14px;
+    left: 20px;
+
+    background: #0b0b0f;
+
+    padding: 2px 8px;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+
+    color: #ff2bd6;
+
+    text-shadow: 0 0 6px #ff2bd6;
+
+}
+
+
+#loginPanel h2 {
+
+    font-size: 16px;
+
+    letter-spacing: 3px;
+
+    color: #00f7ff;
+
+    text-shadow:
+        0 0 6px #00f7ff;
+
+    margin-bottom: 25px;
+
+}
+
+#loginPanel input {
+
+    background: transparent;
+
+    border: none;
+    border-bottom: 1px solid #00f7ff55;
+
+    padding: 10px 5px;
+
+    color: #00f7ff;
+
+    font-family: "Share Tech Mono", monospace;
+
+    transition: all .2s;
+
+}
+
+
+#loginPanel input::placeholder {
+
+    color: #00f7ffaa;
+
+    letter-spacing: 1px;
+
+}
+
+
+#loginPanel input:focus {
+
+    outline: none;
+
+    border-bottom: 1px solid #ff2bd6;
+
+    box-shadow: 0 4px 6px -4px #ff2bd688;
+
+}
+
+
+#loginPanel button {
+
+    padding: 10px;
+
+    background: transparent;
+
+    border: 1px solid #ff2bd6;
+
+    color: #ff2bd6;
+
+    font-family: "Share Tech Mono", monospace;
+
+    border-radius: 4px;
+
+    transition: all .25s ease;
+
+}
+
+
+#loginPanel button:hover {
+
+    background: #ff2bd6;
+    color: #0b0b0f;
+
+    box-shadow:
+        0 0 8px #ff2bd6,
+        0 0 18px #ff2bd6;
+
+}
+
+.auth-inputs {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

@@ -1,13 +1,39 @@
-const API_URL = "/tasks";
+const API_URL = "http://localhost:3000/tasks";
 
 const taskList = document.getElementById("taskList");
 const emptyMessage = document.getElementById("emptyMessage");
+const loginPanel = document.getElementById("loginPanel");
+const taskPanel = document.getElementById("taskPanel");
 
 // cargar tasks al iniciar
-document.addEventListener("DOMContentLoaded", loadTasks);
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        loginPanel.style.display = "none";
+        taskPanel.style.display = "block";
+        loadTasks();
+    }
+
+});
+
+function getAuthHeaders() {
+    const token = localStorage.getItem("token");
+
+    return {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    };
+}
 
 async function loadTasks() {
-    const response = await fetch(API_URL);
+
+    const response = await fetch(API_URL, {
+        headers: getAuthHeaders()
+    });
+
     const tasks = await response.json();
 
     renderTasks(tasks);
@@ -23,6 +49,7 @@ function renderTasks(tasks) {
     }
 
     tasks.forEach(task => {
+
         const li = document.createElement("li");
 
         const textSpan = document.createElement("span");
@@ -37,11 +64,13 @@ function renderTasks(tasks) {
         li.appendChild(deleteBtn);
 
         taskList.appendChild(li);
+
     });
 }
 
 // agregar task
 async function addTask() {
+
     const input = document.getElementById("taskInput");
     const title = input.value;
 
@@ -49,9 +78,7 @@ async function addTask() {
 
     await fetch(API_URL, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: getAuthHeaders(),
         body: JSON.stringify({
             title: title,
             completed: false
@@ -64,9 +91,51 @@ async function addTask() {
 
 // borrar task
 async function deleteTask(id) {
+
     await fetch(`${API_URL}/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: getAuthHeaders()
     });
 
     loadTasks();
+}
+
+// login
+async function login() {
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const response = await fetch("http://localhost:3000/login", {
+
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            username,
+            password
+        })
+
+    });
+
+    const data = await response.json();
+
+    localStorage.setItem("token", data.token);
+
+    loginPanel.style.display = "none";
+    taskPanel.style.display = "block";
+
+    loadTasks();
+}
+
+//logout
+function logout() {
+
+    localStorage.removeItem("token");
+
+    taskPanel.style.display = "none";
+    loginPanel.style.display = "block";
+
 }
