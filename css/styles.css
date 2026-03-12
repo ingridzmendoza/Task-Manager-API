@@ -362,3 +362,11 @@ textarea {
     gap: 10px;
     align-items: center;
 }
+
+#authMessage {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #ff2bd6;
+    text-shadow: 0 0 6px #ff2bd6;
+    letter-spacing: 1px;
+}

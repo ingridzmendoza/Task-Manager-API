@@ -30,23 +30,45 @@ function getAuthHeaders() {
 
 async function loadTasks() {
 
-    const response = await fetch(API_URL, {
-        headers: getAuthHeaders()
-    });
+    try {
 
-    const tasks = await response.json();
+        const response = await fetch(API_URL, {
+            headers: getAuthHeaders()
+        });
 
-    renderTasks(tasks);
+        if (!response.ok) {
+            renderTasks([]); // show empty state
+            return;
+        }
+
+        const tasks = await response.json();
+
+        if (!Array.isArray(tasks)) {
+            renderTasks([]);
+            return;
+        }
+
+        renderTasks(tasks);
+
+    } catch (error) {
+
+        console.error("Task loading failed:", error);
+        renderTasks([]);
+
+    }
+
 }
 
 function renderTasks(tasks) {
+
     taskList.innerHTML = "";
 
-    if (tasks.length === 0) {
+    if (!Array.isArray(tasks) || tasks.length === 0) {
         emptyMessage.style.display = "block";
-    } else {
-        emptyMessage.style.display = "none";
+        return;
     }
+
+    emptyMessage.style.display = "none";
 
     tasks.forEach(task => {
 
@@ -66,6 +88,7 @@ function renderTasks(tasks) {
         taskList.appendChild(li);
 
     });
+
 }
 
 // agregar task
@@ -107,18 +130,21 @@ async function login() {
     const password = document.getElementById("password").value;
 
     const response = await fetch("/login", {
-
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-
-        body: JSON.stringify({
-            username,
-            password
-        })
-
+        body: JSON.stringify({ username, password })
     });
+
+    const message = document.getElementById("authMessage");
+
+    if (!response.ok) {
+        message.textContent = "AUTH ERROR: Invalid credentials";
+        return;
+    }
+
+    message.textContent = "";
 
     const data = await response.json();
 
